@@ -34,10 +34,10 @@ jobs:
           release_name: Release ${{ env.release_tag }}
           draft: false
           prerelease: false
-      - uses: eWaterCycle/setup-singularity@v6
+      - uses: eWaterCycle/setup-apptainer@v2
         if: ${{ env.release_tag != env.latest_tag }}
         with:
-          singularity-version: 3.7.1
+          apptainer-version: 1.3.6
       - name: Build the singularity container
         if: ${{ env.release_tag != env.latest_tag }}
         run: |
@@ -52,7 +52,7 @@ jobs:
                 # Build the container and name by tag
                 echo "Tag is $tag."
                 container="$tag.sif"
-                sudo singularity build --fakeroot container.sif "$recipe"
+                apptainer build --fakeroot container.sif "$recipe"
                 if [ "$?" == "0" ]; then
                     echo "Successfully built container $container."
                     mv container.sif "$container"

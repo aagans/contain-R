@@ -62,7 +62,7 @@ From: rstudio/r-base:focal
         fi
     fi
 
-    # can be configured by setting RENV_CACHE
+    # can be configured by setting RENV_CACHE!
     export RENV_PATHS_ROOT=${RENV_CACHE:-"renv-cache"}
 
     if [ "$USE_PAK" = false ]; then

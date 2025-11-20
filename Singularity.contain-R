@@ -6,8 +6,8 @@ From: rstudio/r-base:focal
     OS_IDENTIFIER=ubuntu-2004
 
     apt-get update -qq && \
-    apt-get install cmake libglpk-dev libcurl4-openssl-dev libgit2-dev pandoc && \
-    sudo apt install --reinstall r-base r-base-core r-base-dev
+    apt-get install -y cmake libglpk-dev libcurl4-openssl-dev libgit2-dev pandoc && \
+    sudo apt install -y --reinstall r-base r-base-core r-base-dev
 
     # install renv and pak
     echo "options(repos = c(CRAN = 'http://cran.us.r-project.org'))" > .Rprofile

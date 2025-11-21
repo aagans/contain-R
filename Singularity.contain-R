@@ -10,6 +10,7 @@ From: rstudio/r-base:focal
     apt-get install -y cmake libglpk-dev libcurl4-openssl-dev libgit2-dev pandoc && \
     apt-get install -y git libfontconfig1-dev libfreetype6-dev libpng-dev && \
     apt-get install -y libssl-dev libx11-dev libxml2-dev && \
+    apt-get install -y libtiff5-dev libjpeg-dev libwebp-dev
     DEBIAN_FRONTEND=noninteractive apt-get install -f -y ./r-${R_VERSION}_1_amd64.deb && \
     ln -s /opt/R/${R_VERSION}/bin/R /usr/bin/R && \
     ln -s /opt/R/${R_VERSION}/bin/Rscript /usr/bin/Rscript && \

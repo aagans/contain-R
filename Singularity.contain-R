@@ -5,9 +5,16 @@ From: rstudio/r-base:focal
     R_VERSION=4.5.2
     OS_IDENTIFIER=ubuntu-2004
 
+    wget https://cdn.posit.co/r/${OS_IDENTIFIER}/pkgs/r-${R_VERSION}_1_amd64.deb && \
     apt-get update -qq && \
     apt-get install -y cmake libglpk-dev libcurl4-openssl-dev libgit2-dev pandoc && \
-    sudo apt install -y --reinstall r-base r-base-core r-base-dev
+    sudo apt install -y --reinstall r-base r-base-core r-base-dev && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -f -y ./r-${R_VERSION}_1_amd64.deb && \
+    ln -s /opt/R/${R_VERSION}/bin/R /usr/bin/R && \
+    ln -s /opt/R/${R_VERSION}/bin/Rscript /usr/bin/Rscript && \
+    ln -s /opt/R/${R_VERSION}/lib/R /usr/lib/R && \
+    rm r-${R_VERSION}_1_amd64.deb && \
+    rm -rf /var/lib/apt/lists/*
 
     # install renv and pak
     echo "options(repos = c(CRAN = 'http://cran.us.r-project.org'))" > .Rprofile

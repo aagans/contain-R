@@ -18,7 +18,7 @@ From: rstudio/r-base:focal
     # install renv and pak
     echo "options(repos = c(CRAN = 'http://cran.us.r-project.org'))" > .Rprofile
     R --quiet -e 'install.packages("renv")'
-    R 'tempdir()'
+    R --no-save 'tempdir()'
 
 %labels
     Author aale.agans@uconn.edu

@@ -24,6 +24,7 @@ From: rstudio/r-base:focal
 
 %environment
     export LC_ALL=C
+    export USE_PAK=false
 
 %runscript
     # we need either install.R or renv.lock present

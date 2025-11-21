@@ -20,7 +20,6 @@ From: rstudio/r-base:focal
     # install renv and pak
     echo "options(repos = c(CRAN = 'http://cran.us.r-project.org'))" > .Rprofile
     R --quiet -e 'install.packages("renv")'
-    R --quiet -e 'install.packages("pak")'
 
 
 %labels
@@ -28,7 +27,8 @@ From: rstudio/r-base:focal
 
 %environment
     export LC_ALL=C
-
+	export USE_PAK=false
+	
 %runscript
     # we need either install.R or renv.lock present
     if [ ! -e install.R ] && [ ! -e renv.lock ]; then
@@ -98,7 +98,6 @@ From: rstudio/r-base:focal
         touch renv/last-updated
     else
         if "$use_lock_file"; then
-        	R -e 'tempdir()'
             R --quiet -e 'renv::restore()'
             touch renv/last-updated
         fi

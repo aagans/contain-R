@@ -7,7 +7,7 @@ From: rstudio/r-base:focal
 
     wget https://cdn.posit.co/r/${OS_IDENTIFIER}/pkgs/r-${R_VERSION}_1_amd64.deb && \
     apt-get update -qq && \
-    apt-get install -y cmake libglpk-dev libcurl4-openssl-dev libgit2-dev pandoc && \
+    apt-get install -y cmake libglpk-dev libcurl4-openssl-dev libgit2-dev pandoc git libfontconfig1-dev libfreetype6-dev libpng-dev libssl-dev libx11-dev libxml2-dev && \
     DEBIAN_FRONTEND=noninteractive apt-get install -f -y ./r-${R_VERSION}_1_amd64.deb && \
     ln -s /opt/R/${R_VERSION}/bin/R /usr/bin/R && \
     ln -s /opt/R/${R_VERSION}/bin/Rscript /usr/bin/Rscript && \

@@ -97,6 +97,7 @@ From: rstudio/r-base:focal
         touch renv/last-updated
     else
         if "$use_lock_file"; then
+        	R -e 'tempdir()'
             R --quiet -e 'renv::restore()'
             touch renv/last-updated
         fi

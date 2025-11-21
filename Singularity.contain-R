@@ -20,7 +20,7 @@ From: rstudio/r-base:focal
     # install renv and pak
     echo "options(repos = c(CRAN = 'http://cran.us.r-project.org'))" > .Rprofile
     R --quiet -e 'install.packages("renv")'
-
+	
 
 %labels
     Author aale.agans@uconn.edu
@@ -89,6 +89,7 @@ From: rstudio/r-base:focal
     fi
 
     if [ ! -e renv/activate.R ]; then
+    	R --quiet -e 'options(renv.config.install.staged = FALSE)'
         R --quiet -e 'renv::init()'
     fi
 
